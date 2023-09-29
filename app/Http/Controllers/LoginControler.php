@@ -24,6 +24,17 @@ class LoginControler extends Controller
     }
 
 
+    public function showAccount()
+    {
+        $user = Auth::user();  // Получаем аутентифицированного пользователя
+
+        if ($user) {
+            return view('account', ['name' => $user->name, 'email' => $user->email]);
+        } else {
+            return redirect('/login'); // Обрабатываем случай, когда пользователь не аутентифицирован
+        }
+    }
+
     public function logout(Request $request)
     {
         $request->session()->forget('cart');

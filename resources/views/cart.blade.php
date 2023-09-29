@@ -13,7 +13,7 @@
             margin: 0;
         }
         .tab {
-           width: 100%;
+            width: 100%;
             padding: 2em;
             margin: 0;
         }
@@ -63,6 +63,12 @@
 
         .order button:hover {
             background-color: green;
+        }
+        .address{
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 8px;
+            padding: 2em;
         }
     </style>
     <div class="cart_frame">
@@ -126,6 +132,8 @@
                     @endforeach
                     <input type="hidden" name="itemTotal" value="{{ $itemTotal }} RUB">
                     <input type="hidden" name="totalPrice" value="{{ $totalPrice }} RUB">
+                    <input type="text" class="address" name="address" placeholder="Введите адрес доставки">
+
                     <button type="submit">Заказать</button>
                 </form>
             </div>

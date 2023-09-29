@@ -22,7 +22,7 @@ Route::get('/onas', function () {
 })->name('onas');
 
 
-Route::view('/account', 'account')->middleware('auth')->name('account');
+
 Route::get('/logout', 'LoginControler@logout')->name('logout');
 
 
@@ -31,6 +31,7 @@ Route::post('/register', 'RegisterControler@store');
 
 Route::get('/login', 'LoginControler@create')->name('login');
 Route::post('/login', 'LoginControler@store');
+Route::get('/account', 'LoginControler@showAccount')->name('account');
 
 
 
@@ -41,9 +42,11 @@ Route::get('/menu/cofes/{id}', 'AddProduct@addcofes')->name('addcofes');
 Route::get('/cart', 'AddProduct@cart')->name('cart');  // Исправлено: изменен контроллер для отображения корзины
 Route::get('/cart/{id}', 'AddProduct@cartdelite')->name('cartdelite');
 
-Route::POST('/order', 'OrderController@order')->name('order');
+
 
 Route::patch('update-cart', [AddProduct::class, 'update'])->name('update_cart');
+Route::post('/order', 'OrderController@order')->name('order');
+Route::get('/order', 'OrderController@show')->name('order');
 
 
 

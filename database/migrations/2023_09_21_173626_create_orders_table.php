@@ -18,7 +18,6 @@ class CreateOrdersTable extends Migration
             $table->string ('name');
             $table->double('price');
             $table->integer('quantity');
-            $table->double('itemTotal');
             $table->double('totalPrice');
             $table->string('payment_method');
         });

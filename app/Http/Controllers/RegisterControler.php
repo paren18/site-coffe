@@ -10,32 +10,39 @@ use Illuminate\Support\Facades\Hash;
 class RegisterControler extends Controller
 {
     public function create()
-{
-return view('register');
-}
+    {
+        return view('register');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required|string',
-           'email'=>'required|string|email',
-            'password'=>'required|confirmed'
+            'name' => 'required|string',
+            'email' => 'required|string|email',
+            'password' => 'required|confirmed'
         ]);
-       $userpoisk = User::where('email', $request->email)->first();
-       if ($userpoisk){
 
-           return redirect()->back()->withInput()->withErrors( ['email'=> 'email занят']);
-       }
+        $userExists = User::where('email', $request->email)->first();
+        if ($userExists) {
+            return redirect()->back()->withInput()->withErrors(['email' => 'Email уже занят']);
+        }
 
-     $user = User::create([
-         'name'=>$request->name,
-         'email'=>$request->email,
-        'password'=> Hash::make($request->password)
-     ]);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
 
-     Auth::login($user);
+        $avatar = new \Laravolt\Avatar\Avatar;
+        $svgAvatar = $avatar->create($request->name)->toSvg();
 
-     return redirect('/account');
+        $svgFilePath = storage_path('app/public/avatar-' . $user->id . '.svg');
+        file_put_contents($svgFilePath, $svgAvatar);
 
+        Auth::login($user);
+
+        return redirect('/account');
     }
+
 
 }
