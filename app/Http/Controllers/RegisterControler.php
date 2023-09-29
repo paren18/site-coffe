@@ -36,7 +36,7 @@ class RegisterControler extends Controller
         $avatar = new \Laravolt\Avatar\Avatar;
         $svgAvatar = $avatar->create($request->name)->toSvg();
 
-        $svgFilePath = storage_path('app/public/avatar-' . $user->id . '.svg');
+        $svgFilePath = public_path('images/avatars/avatar-' . $user->id . '.svg');
         file_put_contents($svgFilePath, $svgAvatar);
 
         Auth::login($user);

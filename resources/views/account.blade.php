@@ -30,7 +30,7 @@
     </style>
     <div class="account_frame">
         <h1>Аккаунт</h1>
-        <img src="{{ asset('storage/avatar-' . auth()->id() . '.svg') }}" width="100" alt="Аватар">
+        <img src="{{ asset('images/avatars/avatar-' . auth()->id() . '.svg') }}" width="100" alt="Аватар">
 
         <div>Имя: {{$name}}</div>
         <div>Email: {{ $email }}</div>
