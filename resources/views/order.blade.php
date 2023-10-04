@@ -1,21 +1,6 @@
 @extends('head')
 @section('main')
-    <style>
-        html body{
-            background-color: #636b6f;
-        }
-        .order_first{
-
-            background-color: #ff9900;
-            color: white;
-            text-align: center;
-            font-size: 1.5em;
-        }
-        .order_first h2{
-            padding: 1em;
-            margin: 0px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/order.css">
     <div class="order_first">
         @if($latestOrder)
             <p>Номер заказа: {{ $latestOrder->id }}</p>

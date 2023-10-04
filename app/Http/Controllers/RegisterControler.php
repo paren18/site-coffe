@@ -39,6 +39,7 @@ class RegisterControler extends Controller
         $svgFilePath = public_path('images/avatars/avatar-' . $user->id . '.svg');
         file_put_contents($svgFilePath, $svgAvatar);
 
+
         Auth::login($user);
 
         return redirect('/account');

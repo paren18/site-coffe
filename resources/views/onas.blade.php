@@ -1,78 +1,7 @@
 @extends('head')
 @section('main')
 
-<style>
-    body{
-        padding: 0px;
-        margin: 0px;
-
-
-    }
-.frame_onas > table{
-    padding-bottom: 4vh;
-    font-size: 30px;
-    font-family: 'Pacifico', cursive;
-    table-layout: fixed;
-    text-align: center;
-
-}
-    .first_onas {
-        background-image:url(images/Бариста.png);
-        background-color: rgba(0,0,0,.5);
-        display: block;
-        background-blend-mode: multiply;
-        background-position: top;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 45%;
-
-
-
-
-    }
-    .first_onas>table{
-        color: lightgray;
-    }
-
-
-   .second_onas{
-       background-color: lightgray;
-       color: #282526;
-       height: 30%;
-   }
-
-   .third_onas{
-       padding-top: 2vh;
-       background-color: #282526;
-   }
-    .third_onas td {
-        width: 50%;
-    }
-
-    .third_onas img {
-        width: 90%;
-        margin: 0 auto; /* Центрируем изображения внутри ячеек */
-    }
-
-    .fourt_onas{
-        background-color: lightgray;
-
-
-    }
-    .fourt_onas > table {
-        margin: auto;
-    }
-    .fourt_onas  img {
-        width: 50%;
-    }
-    .fifth_onas{
-        background-color: #282526;
-      color: lightgray;    }
-    .fifth_onas > table {
-        margin: auto;
-    }
-</style>
-
+    <link rel="stylesheet" type="text/css" href="css/onas.css">
 
 
 

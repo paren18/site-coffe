@@ -1,76 +1,7 @@
 @extends('head')
 
 @section('main')
-    <style>
-        html, body {
-            height: 100%;
-        }
-        .cart_frame {
-            background-color: #636b6f;
-            padding-top: 1em;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-        }
-        .tab {
-            width: 100%;
-            padding: 2em;
-            margin: 0;
-        }
-
-        .tab th, .tab td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-            background-color: #f90;
-            font-size: 1.5em;
-        }
-        .tab th {
-            background-color: #282526;
-            color: white;
-
-        }
-
-        .tab td.item-total {
-            font-weight: bold;
-        }
-
-        .tab td#totalPrice {
-            font-weight: bold;
-            text-align: right;
-        }
-        .order{
-
-            font-size: 1.5em;
-            color: white;
-            margin-left: 86%;
-
-
-        }
-
-
-        .order button {
-            display: block;
-            width: 90%;
-            padding: 8px 10px;
-            border: 0;
-            background-color: #ff9900;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 1em;
-            color: #fff;
-        }
-
-        .order button:hover {
-            background-color: green;
-        }
-        .address{
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin: 8px;
-            padding: 2em;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/cart.css">
     <div class="cart_frame">
         <table class="tab">
             <thead>
@@ -136,6 +67,9 @@
 
                     <button type="submit">Заказать</button>
                 </form>
+                @error('address')
+                <div style="color: red;">{{ $message }}</div>
+                @enderror
             </div>
         @endif
     </div>
